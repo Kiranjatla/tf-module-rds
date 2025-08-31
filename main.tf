@@ -10,8 +10,8 @@ resource "aws_rds_cluster" "default" {
   depends_on           = [aws_rds_cluster_parameter_group.default, aws_db_subnet_group.default]
   for_each = var.rds
   cluster_identifier   = "${var.env}-${each.key}-roboshop-rds"
-  engine               = var.engine
-  engine_version       = var.engine_version
+  engine               = each.value.engine
+  engine_version       = each.value.engine_version
   database_name        = "mydb"
   master_username      = "foo"
   master_password      = "foobarbaz"
