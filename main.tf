@@ -13,7 +13,7 @@ resource "aws_rds_cluster" "default" {
 
 resource "aws_rds_cluster_parameter_group" "default" {
   name        = "${var.env}-${var.name}-roboshop-rds"
-  family      = "aurora5.7"
+  family      = "aurora-mysql5.7"
   description = "RDS default cluster parameter group"
 }
 
